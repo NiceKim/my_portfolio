@@ -5,7 +5,7 @@ import type React from "react"
 import { useState } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { Dialog, DialogContent } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 
 interface ImageCarouselProps {
@@ -42,15 +42,7 @@ export function ImageCarousel({ images, title, open, onOpenChange }: ImageCarous
         onKeyDown={handleKeyDown}
       >
         <div className="relative w-full h-full flex flex-col">
-          {/* Close button - DialogContent already has a built-in close button, so we don't need this one */}
-          {/* <Button
-            variant="ghost"
-            size="icon"
-            className="absolute right-2 top-2 z-50"
-            onClick={() => onOpenChange(false)}
-          >
-            <X className="h-4 w-4" />
-          </Button> */}
+          <DialogTitle>{title}</DialogTitle>
 
           {/* Main image */}
           <div className="relative flex-1 w-full">
