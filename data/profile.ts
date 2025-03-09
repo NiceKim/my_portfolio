@@ -1,16 +1,15 @@
 export const profile = {
-  name: "Jowoon Kim",
-  role: "Back-End Developer",
-  description: "Building modern web applications with cutting-edge technologies",
+  name: "Jowoon Kim (John)",
+  description: "Hi, I'm Jowoon! I'm passionate about full-stack development and AI. Welcome to my portfolio!",
   email: "jowoonkim629@gmail.com",
-  education: "Master of Information Technology, James Cook University",
+  education: "MIT, James Cook University",
   experience: "3+ Years of Experience",
   about:
-    "I am a back-end developer with a strong passion for working with data. Proven experience in saving $21 million USD through data analysis and over 3 years of project management in highly collaborative, international corporate environments.",
-  image: "/images/profile/profile.jpg",
+    "Experienced developer with a passion for data, having saved $21M through data analysis and managed projects for over 3 years in international corporate settings. Holds a master's degree with a solid IT foundation. Aims to leverage my technical and interpersonal skills to build extraordanary products.",
+  image: "profile-image.jpg",
   cv: "jowoon-kim-cv.pdf",
   socialLinks: {
-    github: "https://github.com/yourusername",
+    github: "https://github.com/NiceKim",
     linkedin: "https://www.linkedin.com/in/jowoonkim",
     email: "mailto:jowoonkim629@gmail.com",
   },

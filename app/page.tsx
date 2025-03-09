@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { Mail, Github, Linkedin, Building2, GraduationCap, BookOpen } from "lucide-react"
+import { Mail, Github, Linkedin, Smile, GraduationCap, IdCard, BriefcaseBusiness } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -83,8 +83,8 @@ export default function Page() {
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <a href="#" className="flex items-center space-x-2">
-            <Building2 className="h-6 w-6" />
-            <span className="font-bold">Portfolio</span>
+            <Smile className="h-6 w-6" />
+            <span className="font-bold">JW's Portfolio</span>
           </a>
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#about" className="text-sm font-medium hover:text-primary">
@@ -113,13 +113,13 @@ export default function Page() {
       </header>
 
       <main className="space-y-24 md:space-y-32">
-        {/* Hero Section - Adjusted padding */}
+        {/* Hero Section */}
         <section className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-sky-400 to-blue-800 dark:from-purple-900 dark:to-purple-600" />
           <div className="relative container pt-24 pb-32 md:pt-40 md:pb-48">
             <div className="flex flex-col items-center text-center space-y-6 text-white">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-                {profile.role}
+                SOFTWARE DEVELOPER PORTFOLIO
               </h1>
               <p className="max-w-[600px] text-lg md:text-xl text-white/90">{profile.description}</p>
               <div className="flex flex-col sm:flex-row gap-4 min-[400px]:flex-row">
@@ -152,6 +152,10 @@ export default function Page() {
                 <p className="text-lg text-muted-foreground leading-relaxed">{profile.about}</p>
                 <div className="flex flex-col gap-6 mt-8">
                   <div className="flex items-center gap-3 p-3 rounded-lg bg-background/50 hover:bg-background/80 transition-colors">
+                    <IdCard className="h-5 w-5 text-primary" />
+                    <span>{profile.name}</span>
+                  </div>
+                  <div className="flex items-center gap-3 p-3 rounded-lg bg-background/50 hover:bg-background/80 transition-colors">
                     <Mail className="h-5 w-5 text-primary" />
                     <span>{profile.email}</span>
                   </div>
@@ -160,7 +164,7 @@ export default function Page() {
                     <span>{profile.education}</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-lg bg-background/50 hover:bg-background/80 transition-colors">
-                    <BookOpen className="h-5 w-5 text-primary" />
+                    <BriefcaseBusiness className="h-5 w-5 text-primary" />
                     <span>{profile.experience}</span>
                   </div>
                 </div>
@@ -245,7 +249,6 @@ export default function Page() {
               <TabsList className="flex justify-center">
                 <TabsTrigger value="all">All</TabsTrigger>
                 <TabsTrigger value="web">Web Development</TabsTrigger>
-                <TabsTrigger value="mobile">Mobile Development</TabsTrigger>
                 <TabsTrigger value="other">Other Projects</TabsTrigger>
               </TabsList>
             </Tabs>
@@ -270,7 +273,7 @@ export default function Page() {
                     <div className="flex gap-6">
                       {/* Company Logo */}
                       <div className="flex-shrink-0">
-                        <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-background">
+                        <div className="relative w-40 h-40 rounded-lg overflow-hidden bg-background">
                           <Image
                             src={item.logo || "/placeholder.svg"}
                             alt={`${item.company} logo`}
@@ -288,7 +291,16 @@ export default function Page() {
                           </div>
                           <span className="text-muted-foreground md:text-right">{item.range}</span>
                         </div>
-                        <p className="text-muted-foreground">{item.description}</p>
+                        <p className="text-muted-foreground">
+                          {
+                            item.description.map((sentence, index) => (
+                            <span key={index}>
+                              {sentence}
+                              <br />
+                            </span>
+                            ))
+                          }
+                        </p>
                       </div>
                     </div>
                   </CardContent>
@@ -304,7 +316,7 @@ export default function Page() {
             <div className="max-w-md mx-auto text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">Get in Touch</h2>
               <p className="text-muted-foreground mb-8">
-                Have a project in mind? Let's work together to bring your ideas to life.
+                Let's work together to bring your ideas to life.
               </p>
               <form className="space-y-4" onSubmit={handleContactSubmit}>
                 <Input
@@ -360,10 +372,14 @@ export default function Page() {
           </p>
           <div className="flex items-center space-x-4">
             <Button variant="ghost" size="icon">
-              <Github className="h-5 w-5" />
+              <a href={profile.socialLinks.github} target="_blank" rel="noopener noreferrer">
+                <Github className="h-5 w-5" />
+              </a>
             </Button>
             <Button variant="ghost" size="icon">
-              <Linkedin className="h-5 w-5" />
+              <a href={profile.socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
+                <Linkedin className="h-5 w-5" />
+              </a>
             </Button>
           </div>
         </div>

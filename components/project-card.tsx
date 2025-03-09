@@ -25,7 +25,16 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
         <CardContent className="p-6">
           <h3 className="text-xl font-bold mb-3">{project.title}</h3>
-          <p className="text-muted-foreground mb-4">{project.description}</p>
+          <p className="text-muted-foreground mb-4">
+            {
+              project.description.map((sentence, index) => (
+              <span key={index}>
+                {sentence}
+                <br />
+              </span>
+              ))
+            }
+          </p>
           <div className="flex flex-wrap gap-2 mb-4">
             {project.tags.map((tag) => (
               <Badge key={tag}>{tag}</Badge>
@@ -33,18 +42,22 @@ export default function ProjectCard({ project }: { project: Project }) {
           </div>
         </CardContent>
         <CardFooter className="px-6 pb-6 pt-0 flex flex-wrap gap-3">
-          <Button variant="outline" size="sm" asChild>
-            <a href={project.github} target="_blank" rel="noopener noreferrer">
-              <Github className="mr-2 h-4 w-4" />
-              Code
-            </a>
-          </Button>
+          {project.github && (
+            <Button variant="outline" size="sm" asChild>
+              <a href={project.github} target="_blank" rel="noopener noreferrer">
+                <Github className="mr-2 h-4 w-4" />
+                Code
+              </a>
+            </Button>
+          )}
+          {project.demo && (
           <Button variant="outline" size="sm" asChild>
             <a href={project.demo} target="_blank" rel="noopener noreferrer">
               <ExternalLink className="mr-2 h-4 w-4" />
               Demo
             </a>
           </Button>
+          )}
           {project.video && (
             <Button variant="outline" size="sm" asChild>
               <a href={project.video} target="_blank" rel="noopener noreferrer">
