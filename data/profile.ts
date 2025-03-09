@@ -8,7 +8,7 @@ export const profile = {
   about:
     "I am a back-end developer with a strong passion for working with data. Proven experience in saving $21 million USD through data analysis and over 3 years of project management in highly collaborative, international corporate environments.",
   image: "/images/profile/profile.jpg",
-  cv: "/files/jowoon-kim-cv.pdf", // Added CV file path
+  cv: "jowoon-kim-cv.pdf",
   socialLinks: {
     github: "https://github.com/yourusername",
     linkedin: "https://www.linkedin.com/in/jowoonkim",
