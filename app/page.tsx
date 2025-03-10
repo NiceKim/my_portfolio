@@ -112,9 +112,9 @@ export default function Page() {
         </div>
       </header>
 
-      <main className="space-y-24 md:space-y-32">
+      <main>
         {/* Hero Section */}
-        <section className="relative">
+        <section className="relative py-32 md:py-48">
           <div className="absolute inset-0 bg-gradient-to-r from-sky-400 to-blue-800 dark:from-purple-900 dark:to-purple-600" />
           <div className="relative container pt-24 pb-32 md:pt-40 md:pb-48">
             <div className="flex flex-col items-center text-center space-y-6 text-white">
@@ -144,9 +144,9 @@ export default function Page() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-16 md:py-24 bg-muted/50">
+        <section id="about" className="py-32 md:py-48 bg-muted/100">
           <div className="container">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-16">About Me</h2>
+            <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-center mb-16">ABOUT ME</h2>
             <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
               <div className="space-y-6">
                 <p className="text-lg text-muted-foreground leading-relaxed">{profile.about}</p>
@@ -206,15 +206,15 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Skills Section - Fixed mapping */}
-        <section id="skills" className="py-16 md:py-24">
+        {/* Skills Section */}
+        <section id="skills" className="py-32 md:py-60">
           <div className="container">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">
-              Skills & Expertise
+            <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-center mb-12 pb-2">
+              SKILLS
             </h2>
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
               {skills.map((skill) => (
-                <Card key={skill.title} className="transition-all duration-300 hover:shadow-md">
+                <Card key={skill.title} className="transition-all duration-300 shadow-lg bg-muted/50 hover:scale-110 hover:shadwow-xl p">
                   <CardContent className="pt-6">
                     <h3 className="text-xl font-bold mb-4">{skill.title}</h3>
                     <div className="flex flex-wrap gap-2">
@@ -224,8 +224,7 @@ export default function Page() {
                         ) : (
                           <Badge
                             key={item.name}
-                            variant="secondary"
-                            className="transition-all duration-300 hover:scale-110 hover:shadow-md hover:shadow-primary/20 cursor-pointer"
+                            className="transition-all duration-300 hover:scale-110 hover:shadow-md hover:shadow-primary/20" 
                           >
                             {item.name}
                           </Badge>
@@ -239,11 +238,11 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Projects Section - Fixed structure */}
-        <section id="projects" className="py-16 md:py-24 bg-muted/50">
+        {/* Projects Section */}
+        <section id="projects" className="py-16 md:py-24 bg-muted/100">
           <div className="container">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">
-              Featured Projects
+            <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-center mb-12">
+              PROJECTS
             </h2>
             <Tabs defaultValue="all" className="mb-8" onValueChange={setActiveCategory}>
               <TabsList className="flex justify-center">
@@ -260,16 +259,16 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Career Section - Updated with logo */}
+        {/* Career Section */}
         <section id="career" className="py-16 md:py-24">
           <div className="container">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">
-              Career Journey
+            <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-center mb-12">
+              CAREER JOURNEY
             </h2>
             <div className="space-y-8">
               {career.map((item) => (
                 <Card key={item.id}>
-                  <CardContent className="pt-6">
+                  <CardContent className="pt-6 shadow-lg bg-muted/50 hover:shadow-xl transition-all duration-300">
                     <div className="flex gap-6">
                       {/* Company Logo */}
                       <div className="flex-shrink-0">
@@ -278,7 +277,7 @@ export default function Page() {
                             src={item.logo || "/placeholder.svg"}
                             alt={`${item.company} logo`}
                             fill
-                            className="object-contain p-2"
+                            className="object-cover"
                           />
                         </div>
                       </div>
@@ -310,11 +309,11 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Contact Section - Updated with mailto functionality */}
-        <section id="contact" className="py-16 md:py-24 bg-muted/50">
+        {/* Contact Section */}
+        <section id="contact" className="py-32 md:py-48 bg-muted/100">
           <div className="container mx-auto">
             <div className="max-w-md mx-auto text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">Get in Touch</h2>
+              <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-center mb-4">GET IN TOUCH</h2>
               <p className="text-muted-foreground mb-8">
                 Let's work together to bring your ideas to life.
               </p>

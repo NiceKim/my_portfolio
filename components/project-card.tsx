@@ -14,7 +14,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   return (
     <>
-      <Card className="overflow-hidden">
+      <Card className="overflow-hidden shadow-lg hover:scale-105 hover:shadow-xl transition duration-300">
         <div className="relative aspect-video">
           <Image
             src={project.images[0] || "/placeholder.svg"}
@@ -23,7 +23,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             className="object-cover"
           />
         </div>
-        <CardContent className="p-6">
+        <CardContent className="p-6 ">
           <h3 className="text-xl font-bold mb-3">{project.title}</h3>
           <p className="text-muted-foreground mb-4">
             {

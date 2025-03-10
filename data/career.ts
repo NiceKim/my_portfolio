@@ -30,7 +30,7 @@ export const career: CareerItem[] = [
       "- Took the initiative to design a database for collecting and integratingaround 45,000 daily records from multiple corporate systems, and pre-processed the data to ensure accurate integration.",
       "- Developed data visualizations using SQL to deliver actionable insights."
     ],
-    logo: "career-lg.jpg",
+    logo: "career-lg.png",
   },
   {
     id: "3",
@@ -42,7 +42,7 @@ export const career: CareerItem[] = [
       "- Collaborated with other teams to coordinate production trial runs andmanage project documentation, to guarantee smooth project execution.",
       "- Tracked and reported KPIs and project status for the entire team."
     ],
-    logo: "career-lg.jpg",
+    logo: "career-lg.png",
   },
 ]
 
