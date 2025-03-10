@@ -15,9 +15,10 @@ import { profile } from "@/data/profile"
 import { skills } from "@/data/skills"
 import { projects } from "@/data/projects"
 import { career } from "@/data/career"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { SkillBadge } from "@/components/skill-badge"
+import { MobileMenu } from "@/components/mobile-menu"
 
 export default function Page() {
   const [activeCategory, setActiveCategory] = useState("all")
@@ -32,6 +33,38 @@ export default function Page() {
     success?: boolean
     message?: string
   } | null>(null)
+
+  const navLinks = [
+    { href: "#about", label: "About" },
+    { href: "#skills", label: "Skills" },
+    { href: "#projects", label: "Projects" },
+    { href: "#career", label: "Career" },
+    { href: "#contact", label: "Contact" },
+  ]
+
+  // Handle smooth scrolling for desktop navigation
+  useEffect(() => {
+    const handleNavClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement
+      if (target.tagName === "A" && target.getAttribute("href")?.startsWith("#")) {
+        const href = target.getAttribute("href")
+        if (href && !href.includes("mailto:")) {
+          e.preventDefault()
+          const element = document.querySelector(href)
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth" })
+          }
+        }
+      }
+    }
+
+  // Only add event listener to desktop nav
+  const desktopNav = document.querySelector("header nav") as HTMLElement | null;
+  if (desktopNav) {
+    desktopNav.addEventListener("click", handleNavClick);
+    return () => desktopNav.removeEventListener("click", handleNavClick);
+  }
+  }, [])
 
   const filteredProjects = projects.filter((project) =>
     activeCategory === "all" ? true : project.category === activeCategory,
@@ -79,38 +112,32 @@ export default function Page() {
 
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
-      {/* Header - Adjusted padding */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <a href="#" className="flex items-center space-x-2">
             <Smile className="h-6 w-6" />
             <span className="font-bold">JW's Portfolio</span>
           </a>
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#about" className="text-sm font-medium hover:text-primary">
-              About
-            </a>
-            <a href="#skills" className="text-sm font-medium hover:text-primary">
-              Skills
-            </a>
-            <a href="#projects" className="text-sm font-medium hover:text-primary">
-              Projects
-            </a>
-            <a href="#career" className="text-sm font-medium hover:text-primary">
-              Career
-            </a>
-            <a href="#contact" className="text-sm font-medium hover:text-primary">
-              Contact
-            </a>
+            {navLinks.map((link) => (
+                <a key={link.href} href={link.href} className="text-sm font-medium hover:text-primary">
+                  {link.label}
+                </a>
+              ))}
           </nav>
           <div className="flex items-center space-x-4">
             <ThemeToggle />
-            <Button asChild>
+            <Button asChild className="hidden sm:flex">
               <a href={`mailto:${profile.email}`}>Get in Touch</a>
             </Button>
+            <MobileMenu links={navLinks} />
           </div>
         </div>
       </header>
+
+      {/* Add padding to account for fixed header */}
+      <div className="pt-16"></div>
 
       <main>
         {/* Hero Section */}
