@@ -16,7 +16,7 @@ export function SkillBadge({ name, logo, color }: SkillBadgeProps) {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <div className="transition-all duration-300 hover:scale-110 hover:shadow-md hover:shadow-primary/20 cursor-pointer">
+          <div className="transition-all duration-300 hover:scale-110 hover:shadow-md hover:shadow-primary/20">
             <Image src={badgeUrl || "/placeholder.svg"} alt={`${name} badge`} width={100} height={22} className="h-7" />
           </div>
         </TooltipTrigger>

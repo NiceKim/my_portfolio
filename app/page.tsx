@@ -6,7 +6,7 @@ import { Mail, Github, Linkedin, Smile, GraduationCap, IdCard, BriefcaseBusiness
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Badge } from "@/components/ui/badge"
+// import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import ProjectCard from "@/components/project-card"
@@ -17,8 +17,10 @@ import { projects } from "@/data/projects"
 import { career } from "@/data/career"
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { SkillBadge } from "@/components/skill-badge"
+// import { SkillBadge } from "@/components/skill-badge"
 import { MobileMenu } from "@/components/mobile-menu"
+import { SkillCard } from "@/components/skill-card"
+
 
 export default function Page() {
   const [activeCategory, setActiveCategory] = useState("all")
@@ -241,25 +243,7 @@ export default function Page() {
             </h2>
             <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
               {skills.map((skill) => (
-                <Card key={skill.title} className="transition-all duration-300 shadow-lg bg-muted/50 hover:scale-110 hover:shadwow-xl p">
-                  <CardContent className="pt-6">
-                    <h3 className="text-xl font-bold mb-4">{skill.title}</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {skill.items.map((item) =>
-                        item.logo ? (
-                          <SkillBadge key={item.name} name={item.name} logo={item.logo} color={item.color || "gray"} />
-                        ) : (
-                          <Badge
-                            key={item.name}
-                            className="transition-all duration-300 hover:scale-110 hover:shadow-md hover:shadow-primary/20" 
-                          >
-                            {item.name}
-                          </Badge>
-                        ),
-                      )}
-                    </div>
-                  </CardContent>
-                </Card>
+                 <SkillCard key={skill.title} skill={skill} />
               ))}
             </div>
           </div>

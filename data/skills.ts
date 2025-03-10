@@ -1,5 +1,9 @@
+import { Code, Server, Monitor, Wrench, Cloud, Globe } from "lucide-react"
+import type { LucideIcon } from "lucide-react"
+
 export type Skill = {
   title: string
+  icon: LucideIcon
   items: {
     name: string
     logo?: string
@@ -10,6 +14,7 @@ export type Skill = {
 export const skills: Skill[] = [
   {
     title: "Programming Languages",
+    icon: Monitor,
     items: [
       { name: "javascript", logo: "javascript", color: "F7DF1E" },
       { name: "python", logo: "python", color: "3776AB" },
@@ -21,6 +26,7 @@ export const skills: Skill[] = [
   },
   {
     title: "Backend Development",
+    icon: Server,
     items: [
       { name: "express", logo: "express", color: "000000" },
       { name: "nodejs", logo: "node.js", color: "339933" },
@@ -32,6 +38,7 @@ export const skills: Skill[] = [
   },
   {
     title: "Frontend Development",
+    icon: Code,
     items: [
       { name: "html5", logo: "html5", color: "E34F26" },
       { name: "css3", logo: "css3", color: "1572B6" },
@@ -44,6 +51,7 @@ export const skills: Skill[] = [
   },
   {
     title: "Tools & Others",
+    icon: Wrench,
     items: [
       { name: "git", logo: "git", color: "F05032" },
       { name: "github", logo: "github", color: "100000" },
@@ -55,6 +63,7 @@ export const skills: Skill[] = [
   },
   {
     title: "Cloud & Deployment",
+    icon: Cloud,
     items: [
       { name: "aws ec2", logo: "amazonec2", color: "FF9900"},
       { name: "aws rds", logo: "amazonrds", color: "527FFF"},
@@ -65,6 +74,7 @@ export const skills: Skill[] = [
   },
   {
     title: "Languages",
+    icon: Globe,
     items: [
       { name: "Korean", color: "5A45FF" },
       { name: "English", color: "2B579A" },
