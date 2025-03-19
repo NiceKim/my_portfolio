@@ -61,7 +61,7 @@ Built with Next.js for full-stack functionality, Typescript and Tailwind CSS for
      </tr>
         <tr>
       <td align="center"><img src="https://github.com/user-attachments/assets/bdd5e86e-fd1d-4e39-b8ad-3dc93d0415dd" width="500px" height="350px" alt="Image Carousel"></td>
-      <td align="center"><img src="https://github.com/user-attachments/assets/77421006-005a-4697-b716-6baee4167bfa" width="500px" height="200px" alt="Contact Form"></td>
+      <td align="center"><img src="https://github.com/user-attachments/assets/a105e823-51a5-4bf4-af88-e22f59aeeea6" width="500px" height="300px" alt="Contact Form"></td>
     </tr>
       <tr>
       <td align="center">Image Carousel</td>
