@@ -59,6 +59,7 @@ export const skills: Skill[] = [
       { name: "TensorFlow", logo: "tensorflow", color: "FF6F00"},
       { name: "Jest", logo: "jest", color: "323330"},
       { name: "figma", logo: "figma", color: "F24E1E" },
+      { name: "Bash", logo: "GNU%20Bash", color: "4EAA25" }
     ],
   },
   {

@@ -15,24 +15,24 @@ export const projects: Project[] = [
     id: "1",
     title: "Deep Learning Fraud Detection During Online Assessment",
     description: [
-      "Developed RF and RNN models in TensorFlow for analyzing mouse behavior and detecting fraud, achieving 96% accuracy.",
-      "Applied Agile and XP methodologies, reducing project delivery time by 15%.",
+      "Designed an LSTM model using Python & TensorFlow to analyze students' mouse behavior and detect identity fraud in online assessments, achieving 96% accuracy.",
+      "Applied Agile methodologies and Test-Driven Development (TDD) with pytest to efficiently develop, test, and deliver software for machine learning, reducing project delivery time by 15%",
     ],
     images: [
       "/projects/deeplearning-1.jpg",
       "/projects/deeplearning-2.jpg",
       "/projects/deeplearning-3.jpg",
     ],
-    tags: ["Python", "Tensorflow", "Pandas"],
-    demo: "https://colab.research.google.com/drive/19r1Oo9-4gGkmjtEmBdciL_taWGqFwEo_?usp=sharing",
+    tags: ["Python", "Tensorflow", "Agile", "Pytest"],
+    demo: "https://colab.research.google.com/drive/1wqHFe_mHf_t_mw1_poOsCLKr0tGJERUd?usp=sharing",
     category: "other",
   },
   {
     id: "2",
     title: "Stray Spotter: Cloud-based Web Service",
     description: [
-      "Led a team of 3 to create a web service for sharing stray cat pictures and tracking their well-being.",
-      "Built the backend with Node.js, designed the MySQL database, and used AWS S3 cloud for image hosting.",
+      "Developed a web service for sharing stray cat pictures, extracting metadata to monitor their population and well-being.",
+      "Developed the backend server with Node.js, designed the database with MySQL, and utilized AWS S3 cloud for image hosting.",
     ],
     images: [
       "/projects/stray-spotter-0.png",

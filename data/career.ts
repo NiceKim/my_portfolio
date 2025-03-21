@@ -27,8 +27,8 @@ export const career: CareerItem[] = [
     range: "OCT 2021 - SEP 2022",
     description: [
       "- Analyzed data to minimize wasted materials, resulting in total savings of 21 million USD over one year.",
-      "- Took the initiative to design a database for collecting and integratingaround 45,000 daily records from multiple corporate systems, and pre-processed the data to ensure accurate integration.",
-      "- Developed data visualizations using SQL to deliver actionable insights."
+      "- Beyond my data analyst responsibilities, designed a database using Qlik that integrated around 45,000 daily records from multiple corporate systems.",
+      "- Built end-to-end data pipeline from raw data extraction to interactive data visualizations using SQL to deliver actionable insights."
     ],
     logo: "career-lg.png",
   },
@@ -39,8 +39,8 @@ export const career: CareerItem[] = [
     range: "AUG 2019 - SEP 2022",
     description:[
       "- Ensured timely readiness for mass production of IVI (In-VehicleInfotainment) systems by overseeing key metrics such as defect ratesand production rates, achieving a 73% defect reduction.",
-      "- Collaborated with other teams to coordinate production trial runs andmanage project documentation, to guarantee smooth project execution.",
-      "- Tracked and reported KPIs and project status for the entire team."
+      "- Collaborated with other teams to coordinate production trial runs and manage project documentation, to guarantee smooth project execution.",
+      "- Managed KPI tracking for 100+ projects, delivering weekly reports to resolve bottlenecks and driving 3 years of continuous target achievement."
     ],
     logo: "career-lg.png",
   },
