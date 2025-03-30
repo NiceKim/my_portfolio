@@ -21,7 +21,6 @@ export const skills: Skill[] = [
       { name: "java", logo: "openjdk", color: "ED8B00" },
       { name: "C", logo: "c", color: "00599C" },
       { name: "kotlin", logo: "kotlin", color: "0095D5" },
-      { name: "Shell Script", logo: "linux", color: "000000" },
     ],
   },
   {
