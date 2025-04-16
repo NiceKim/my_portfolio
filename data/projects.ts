@@ -15,16 +15,17 @@ export const projects: Project[] = [
     id: "1",
     title: "Deep Learning Fraud Detection During Online Assessment",
     description: [
-      "Designed an LSTM model using Python & TensorFlow to analyze students' mouse behavior and detect identity fraud in online assessments, achieving 96% accuracy.",
+      "Designed an LSTM model using Python & TensorFlow to analyze students' mouse behavior and detect identity fraud in online assessments, achieving 96% accuracy, and 0.09 second response time.",
       "Applied Agile methodologies and Test-Driven Development (TDD) with pytest to efficiently develop, test, and deliver software for machine learning, reducing project delivery time by 15%",
     ],
     images: [
       "/projects/deeplearning-1.jpg",
-      "/projects/deeplearning-2.jpg",
+      "/projects/deeplearning-2.png",
       "/projects/deeplearning-3.jpg",
+      "/projects/deeplearning-4.gif",
     ],
     tags: ["Python", "Tensorflow", "Agile", "Pytest"],
-    demo: "https://colab.research.google.com/drive/1wqHFe_mHf_t_mw1_poOsCLKr0tGJERUd?usp=sharing",
+    demo: "https://colab.research.google.com/drive/1Z-bj288oLvlznIMzcokDo-8zgHqxBQHu?usp=sharing",
     category: "other",
   },
   {
