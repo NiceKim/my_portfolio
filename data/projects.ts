@@ -25,6 +25,7 @@ export const projects: Project[] = [
       "/projects/deeplearning-4.gif",
     ],
     tags: ["Python", "Tensorflow", "Agile", "Pytest"],
+    github:"https://github.com/NiceKim/DL_FraudDetection",
     demo: "https://colab.research.google.com/drive/1Z-bj288oLvlznIMzcokDo-8zgHqxBQHu?usp=sharing",
     category: "other",
   },
@@ -114,6 +115,7 @@ export const projects: Project[] = [
       "Saved 90% of the time spent on manual searches and transcription."
     ],
     images: ["/projects/rpa-1.jpg"],
+    github: "https://github.com/NiceKim/Python_Lyrics_Crawling/tree/main/rpa",
     tags: ["Python", "RPA", "BeautifulSoup"],
     category: "other",
   },
