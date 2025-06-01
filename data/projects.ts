@@ -15,8 +15,9 @@ export const projects: Project[] = [
     id: "1",
     title: "Deep Learning Fraud Detection During Online Assessment",
     description: [
-      "Designed an LSTM model using Python & TensorFlow to analyze students' mouse behavior and detect identity fraud in online assessments, achieving 96% accuracy, and 0.09 second response time.",
-      "Applied Agile methodologies and Test-Driven Development (TDD) with pytest to efficiently develop, test, and deliver software for machine learning, reducing project delivery time by 15%",
+      "LSTM-based non intrusive real-time fraud detection system that analyzes mouse behavior patterns to identify fraud.",
+      "96% accuracy with 0.09 second response time.",
+      "Agile development process with TDD, resulting in 15% reduction in project delivery time.",
     ],
     images: [
       "/projects/deeplearning-1.jpg",
@@ -33,8 +34,8 @@ export const projects: Project[] = [
     id: "2",
     title: "Stray Spotter: Cloud-based Web Service",
     description: [
-      "Developed a web service for sharing stray cat pictures, extracting metadata to monitor their population and well-being.",
-      "Developed the backend server with Node.js, designed the database with MySQL, and utilized AWS S3 cloud for image hosting.",
+      "Cloud-based web platform for stray cat monitoring that enables photo sharing and automatic metadata extraction to track population and welfare status.",
+      "Containerized full-stack architecture with backend managing database and AWS S3 cloud integration, and frontend server delivering responsive user interface.",
     ],
     images: [
       "/projects/stray-spotter-0.png",
@@ -43,7 +44,7 @@ export const projects: Project[] = [
       "/projects/stray-spotter-3.png",
       "/projects/stray-spotter-4.png",
     ],
-    tags: ["Node.js", "AWS", "MySQL"],
+    tags: ["Node.js", "AWS S3", "MySQL", "Express.js", "Docker", "Next.js", "Jest", "Swagger", "Javascript", "Rest API"],
     github: "https://github.com/NiceKim/strayspotter",
     category: "web",
   },
@@ -51,8 +52,8 @@ export const projects: Project[] = [
     id: "3",
     title: "Responsive Portfolio Website",
     description: [
-      "Developed a responsive, interactive portfolio website to showcase my achievements.",
-      "Built with Next.js for full-stack functionality, Tailwind CSS for the frontend, and deployed on Vercel.",
+      "Responsive, interactive portfolio website that showcases my achievements.",
+      "Modern web application leveraging cutting-edge technologies for full-stack development, responsive styling, and cloud deployment to ensure optimal performance and accessibility.",
     ],
     images: [
       "/projects/my-portfolio-1.png",
@@ -70,9 +71,8 @@ export const projects: Project[] = [
     id: "4",
     title: "Word Monster: Gamified Language Learning on Android",
     description: [
-      "Developed an educational Android game app for language learning with Kotlin and Android Studio.",
-      "Implemented unit testing, integrated a leaderboard database, and used APIs for global rankings.",
-      "Designed multiple screens using the MVVM model for maintainability."
+      "Educational Android game combining language learning with gamification elements to enhance user engagement.",
+      "Mobile application featuring competitive leaderboard system, global ranking integration, and MVVM architecture for scalable maintenance.",
     ],
     images: ["/projects/word-monster-1.png"],
     tags: ["Kotlin", "Android Studio"],
@@ -82,8 +82,8 @@ export const projects: Project[] = [
     id: "5",
     title: "AI BI: AI-Powered Business Intelligence Web Application",
     description: [
-      "Developed a web service using AI to generate business intelligence charts from user data.",
-      "As a Frontend Developer, built interactive UI components with React to improve user experience.",
+      "AI-driven platform automatically generating business intelligence charts from raw user data.",
+      "Interactive React-based frontend delivering intuitive data visualization and exploration experience."
     ],
     images: ["/projects/aibi-1.png", "/projects/aibi-2.png"],
     tags: ["React", "BI"],
@@ -93,8 +93,8 @@ export const projects: Project[] = [
     id: "6",
     title: "EasyGo: Travel App Design with HCI Principles",
     description: [
-      "Developed a fully functional travel app prototype in Figma with features for food, accommodations, and attractions.",
-      "Applied HCI principles, improving usability by 12% through surveys and user testing."
+      "Travel app prototype integrating food, accommodation, and attraction features in unified experience.",
+      "HCI-focused design achieving 12% usability improvement through user testing and optimization.",
     ],
     images: [
       "/projects/easygo-1.png",
@@ -111,8 +111,8 @@ export const projects: Project[] = [
     id: "7",
     title: "Lyrics Crawling: Python RPA for Subtitle Automation",
     description: [
-      "Developed a Python program with Selenium and BeautifulSoup to automate adding subtitles to hymns during live broadcasts",
-      "Saved 90% of the time spent on manual searches and transcription."
+      "Python automation system for subtitle generation during live hymn broadcasts using web crawling technology.",
+      "RPA solution reducing manual search and transcription time by 90% through automated data extraction.",
     ],
     images: ["/projects/rpa-1.jpg"],
     github: "https://github.com/NiceKim/Python_Lyrics_Crawling/tree/main/rpa",
@@ -123,11 +123,11 @@ export const projects: Project[] = [
     id: "8",
     title: "Jewelry Hunter: Java-based 2D Puzzle Adventure",
     description: [
-      "Led a team of 4 in developing a 2D game for Windows.",
-      "Utilized Java GUI Swing Library to design the interface and implemented core game logic."
+      "2D puzzle adventure game for Windows platform featuring interactive gameplay and visual storytelling elements.",
+      "Team-developed Java application with custom GUI interface and comprehensive game logic implementation.",
     ],
     images: ["/projects/java-game-1.png", "/projects/java-game-2.png"],
-    tags: ["Java", "Swing"],
+    tags: ["Java", "Swing", "Git", "GitHub"],
     github: "https://github.com/sukso96100/jewelry_hunter?tab=readme-ov-file",
     video: "https://www.youtube.com/watch?v=aLrWUD4ksNk",
     category: "other",

@@ -10,9 +10,9 @@ export type CareerItem = {
 export const career: CareerItem[] = [
   {
     id: "1",
-    title: "Intern",
-    company: "Need Property",
-    range: "DEC 2024 - NOW",
+    title: "Web Developer Intern",
+    company: "Docentron",
+    range: "DEC 2024 - APR 2025",
     description: [
       "- Developed and maintained a WordPress website for a real estate business.",
       "- Optimized website for SEO to improve search visibility.",

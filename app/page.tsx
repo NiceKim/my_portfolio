@@ -18,10 +18,11 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import { MobileMenu } from "@/components/mobile-menu"
 import { SkillCard } from "@/components/skill-card"
+import { useCategoryStore } from "@/store/category-store"
 
 
 export default function Page() {
-  const [activeCategory, setActiveCategory] = useState("all")
+  const { activeCategory, setActiveCategory } = useCategoryStore()
   const [contactForm, setContactForm] = useState({
     subject: "",
     message: "",
@@ -253,7 +254,7 @@ export default function Page() {
             <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-center mb-12">
               PROJECTS
             </h2>
-            <Tabs defaultValue="all" className="mb-8" onValueChange={setActiveCategory}>
+            <Tabs defaultValue="all" value={activeCategory} className="mb-8" onValueChange={setActiveCategory}>
               <TabsList className="flex justify-center">
                 <TabsTrigger value="all">All</TabsTrigger>
                 <TabsTrigger value="web">Web Development</TabsTrigger>

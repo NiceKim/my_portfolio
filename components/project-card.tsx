@@ -8,13 +8,29 @@ import { ExternalLink, Github, Play, ImageIcon } from "lucide-react"
 import Image from "next/image"
 import type { Project } from "@/data/projects"
 import { ImageCarousel } from "./image-carousel"
+import { useCategoryStore } from "@/store/category-store"
+import { cn } from "@/lib/utils"
 
 export default function ProjectCard({ project }: { project: Project }) {
   const [showCarousel, setShowCarousel] = useState(false)
+  const [hoveredTag, setHoveredTag] = useState<string | null>(null)
+  const { highlightedSkill } = useCategoryStore()
+
+  const isHighlighted = highlightedSkill && project.tags.some(
+    tag => tag.toLowerCase() === highlightedSkill.toLowerCase()
+  )
 
   return (
     <>
-      <Card className="overflow-hidden shadow-lg hover:scale-105 hover:shadow-xl transition duration-300">
+      <Card 
+        id={`project-${project.id}`} 
+        className={cn(
+          "overflow-hidden transition-all duration-300",
+          isHighlighted
+            ? "scale-105 shadow-xl ring-2 ring-primary"
+            : "shadow-lg hover:scale-105 hover:shadow-xl"
+        )}
+      >
         <div className="relative aspect-video">
           <Image
             src={project.images[0] || "/placeholder.svg"}
@@ -23,7 +39,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             className="object-cover"
           />
         </div>
-        <CardContent className="p-6 ">
+        <CardContent className="p-6">
           <h3 className="text-xl font-bold mb-3">{project.title}</h3>
           <p className="text-muted-foreground mb-4">
             {
@@ -37,7 +53,15 @@ export default function ProjectCard({ project }: { project: Project }) {
           </p>
           <div className="flex flex-wrap gap-2 mb-4">
             {project.tags.map((tag) => (
-              <Badge key={tag}>{tag}</Badge>
+              <Badge 
+                key={tag}
+                variant={(hoveredTag === tag || highlightedSkill?.toLowerCase() === tag.toLowerCase()) ? "default" : "secondary"}
+                className="transition-colors duration-200"
+                onMouseEnter={() => setHoveredTag(tag)}
+                onMouseLeave={() => setHoveredTag(null)}
+              >
+                {tag}
+              </Badge>
             ))}
           </div>
         </CardContent>
