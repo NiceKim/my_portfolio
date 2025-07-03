@@ -1,11 +1,15 @@
 export const profile = {
-  name: "Jowoon Kim (John)",
   description: "Hi, I'm Jowoon! I'm passionate about full-stack development and AI. Welcome to my portfolio!",
   email: "jowoonkim629@gmail.com",
   education: "MIT, James Cook University",
   experience: "3+ Years of Experience",
-  about:
-    "Experienced developer with a passion for data, having saved $21M through data analysis and managed projects for over 3 years in international corporate settings. Holds a master's degree with a solid IT foundation. Aims to leverage my technical and interpersonal skills to build extraordanary products.",
+  about: [
+    "I am a developer. passionate about creating things that are sometimes useful, sometimes useless, but always fun.",
+    "I am an engineer. the kind who enjoys staying up all night just to find that one missing semicolon.",
+    "I am an explorer. I've lived, worked, studied, and traveled across 20+ countries.",
+    "I am a lifelong learner. passionate about everything from IT and math to science and history.",
+    "I'm Jowoon. Whether you're building something, exploring new ideas, or just want to say hi — I'd love to hear from you."
+  ],
   image: "profile-image.jpg",
   cv: "jowoon-kim-cv.pdf",
   socialLinks: {

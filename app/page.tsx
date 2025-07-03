@@ -176,13 +176,13 @@ export default function Page() {
           <div className="container">
             <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-center mb-16">ABOUT ME</h2>
             <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-              <div className="space-y-6">
-                <p className="text-lg text-muted-foreground leading-relaxed">{profile.about}</p>
+              <div>
+                {profile.about.map((sentence, idx) => (
+                  <p key={idx} className="text-lg text-muted-foreground leading-relaxed mb-2">
+                    {sentence}
+                  </p>
+                ))}
                 <div className="flex flex-col gap-6 mt-8">
-                  <div className="flex items-center gap-3 p-3 rounded-lg bg-background/50 hover:bg-background/80 transition-colors">
-                    <IdCard className="h-5 w-5 text-primary" />
-                    <span>{profile.name}</span>
-                  </div>
                   <div className="flex items-center gap-3 p-3 rounded-lg bg-background/50 hover:bg-background/80 transition-colors">
                     <Mail className="h-5 w-5 text-primary" />
                     <span>{profile.email}</span>
