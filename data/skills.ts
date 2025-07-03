@@ -17,6 +17,7 @@ export const skills: Skill[] = [
     icon: Monitor,
     items: [
       { name: "Javascript", logo: "javascript", color: "F7DF1E" },
+      { name: "Typescript", logo: "typescript", color: "3178C6" },
       { name: "Python", logo: "python", color: "3776AB" },
       { name: "Java", logo: "openjdk", color: "ED8B00" },
       { name: "C", logo: "c", color: "00599C" },
@@ -43,7 +44,6 @@ export const skills: Skill[] = [
       { name: "CSS3", logo: "css3", color: "1572B6" },
       { name: "React", logo: "react", color: "61DAFB" },
       { name: "Next.js", logo: "next.js", color: "000000" },
-      { name: "Typescript", logo: "typescript", color: "3178C6" },
       { name: "Tailwind CSS", logo: "tailwind-css", color: "06B6D4" },
       { name: "Bootstrap", logo: "Bootstrap", color: "563D7C" },
     ],
@@ -59,7 +59,7 @@ export const skills: Skill[] = [
       { name: "Jest", logo: "jest", color: "323330"},
       { name: "Pytest", logo: "pytest", color: "0A9EDC"},
       { name: "Figma", logo: "figma", color: "F24E1E" },
-      { name: "Bash", logo: "GNU%20Bash", color: "4EAA25" }
+      { name: "Linux", logo: "linux", color: "000000" }
     ],
   },
   {
