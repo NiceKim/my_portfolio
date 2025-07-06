@@ -30,7 +30,6 @@ export const skills: Skill[] = [
     items: [
       { name: "Express.js", logo: "express", color: "000000" },
       { name: "Node.js", logo: "node.js", color: "339933" },
-      { name: "Rest API", logo: "rest", color: "007ACC" },
       { name: "FastAPI", logo: "fasiapi", color: "005571" },
       { name: "MySQL", logo: "mysql", color: "005C84" },
       { name: "MongoDB", logo: "mongodb", color: "47A248" },
@@ -75,12 +74,12 @@ export const skills: Skill[] = [
     ],
   },
   {
-    title: "Languages",
+    title: "API & Communication",
     icon: Globe,
     items: [
-      { name: "Korean", color: "5A45FF" },
-      { name: "English", color: "2B579A" },
-      { name: "Vietnamese", color: "FF0000" },
+      { name: "WebRTC", logo: "webrtc", color: "333333" },
+      { name: "Socket.io", logo: "socketdotio", color: "010101" },
+      { name: "REST API", logo: "rest", color: "007ACC"},
     ],
   },
 ]
