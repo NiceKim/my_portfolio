@@ -19,7 +19,10 @@ import Image from "next/image"
 import { MobileMenu } from "@/components/mobile-menu"
 import { SkillCard } from "@/components/skill-card"
 import { useCategoryStore } from "@/store/category-store"
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel"
 
+// Hero Section에서 사용할 배경 이미지 배열 (featured 프로젝트의 첫 번째 이미지)
+const heroBackgrounds = projects.filter(p => p.featured).map(p => p.images[0]).filter(Boolean)
 
 export default function Page() {
   const { activeCategory, setActiveCategory } = useCategoryStore()
@@ -163,31 +166,47 @@ export default function Page() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative py-32 md:py-48">
-          <div className="absolute inset-0 bg-gradient-to-r from-sky-400 to-blue-800 dark:from-purple-900 dark:to-purple-600" />
-          <div className="relative container pt-24 pb-32 md:pt-40 md:pb-48">
-            <div className="flex flex-col items-center text-center space-y-6 text-white">
-              <h1 className="mb-4 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl whitespace-pre-line">
-                {profile.title}
-              </h1>
-              <p className="max-w-[600px] text-lg md:text-xl text-white/90 whitespace-pre-line">{profile.description}</p>
-              <div className="flex flex-col sm:flex-row gap-4 min-[400px]:flex-row">
-                <Button size="lg" variant="secondary" asChild>
-                  <a href="#projects">View Projects</a>
-                </Button>
-                <Button size="lg" variant="outline" className="bg-white/10" asChild>
-                  <a
-                    href={profile.cv}
-                    download="jowoon-kim-cv.pdf"
-                    onClick={(e) => {
-                      // Prevent default if file doesn't exist
-                      if (!profile.cv) e.preventDefault()
-                    }}
-                  >
-                    Download CV
-                  </a>
-                </Button>
-              </div>
+        <section className="relative overflow-hidden">
+          <Carousel opts={{ loop: true }}>
+            <CarouselContent>
+              {heroBackgrounds.map((img, idx) => (
+                <CarouselItem key={img}>
+                  <img
+                    src={img}
+                    alt={`Hero background ${idx + 1}`}
+                    className="w-full h-full object-cover object-center"
+                  />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious size="icon" className="absolute left-4 top-1/2 -translate-y-1/2 z-20 pointer-events-auto hidden md:block" />
+            <CarouselNext size="icon" className="absolute right-4 top-1/2 -translate-y-1/2 z-20 pointer-events-auto hidden md:block" />
+          </Carousel>
+          <div className="absolute inset-0 bg-black opacity-60 pointer-events-none"></div>
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center space-y-6 text-white pointer-events-none">
+            <h1 className="mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter flex flex-col gap-3 sm:gap-4 md:gap-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+              {Array.isArray(profile.title)
+                ? profile.title.map((sentence, idx) => (
+                    <div key={idx}>{sentence}</div>
+                  ))
+                : profile.title}
+            </h1>
+            <p className="max-w-[600px] text-lg md:text-xl text-white/90 whitespace-pre-line drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">{profile.description}</p>
+            <div className="flex flex-col sm:flex-row gap-4 min-[400px]:flex-row">
+              <Button size="lg" variant="default" asChild className="pointer-events-auto">
+                <a href="#projects">View Projects</a>
+              </Button>
+              <Button size="lg" variant="outline" className="bg-white/10 pointer-events-auto" asChild>
+                <a
+                  href={profile.cv}
+                  download="jowoon-kim-cv.pdf"
+                  onClick={(e) => {
+                    if (!profile.cv) e.preventDefault()
+                  }}
+                >
+                  Download CV
+                </a>
+              </Button>
             </div>
           </div>
         </section>

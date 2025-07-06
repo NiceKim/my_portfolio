@@ -1,5 +1,9 @@
 export const profile = {
-  description: "Hi, I'm Jowoon! I'm passionate about full-stack development and AI. Welcome to my portfolio!",
+  title: [
+    "TRUE ALL-ROUNDER",
+    "CODE TO BRING FUN IDEAS TO LIFE",
+  ],
+  description: "Hackathon Winner • Full-Stack Developer \n 3+ Years as Project Manager | MSc in IT",
   email: "jowoonkim629@gmail.com",
   education: "MIT, James Cook University",
   experience: "3+ Years of Experience",
