@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { Mail, Github, Linkedin, Smile, GraduationCap, IdCard, BriefcaseBusiness } from "lucide-react"
+import { Mail, Github, Linkedin, Smile, GraduationCap, BriefcaseBusiness } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -34,6 +34,8 @@ export default function Page() {
     success?: boolean
     message?: string
   } | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const projectsPerPage = 6
 
   const navLinks = [
     { href: "#about", label: "About" },
@@ -70,6 +72,17 @@ export default function Page() {
   const filteredProjects = projects.filter((project) =>
     activeCategory === "all" ? true : project.category === activeCategory,
   )
+
+  const totalPages = Math.ceil(filteredProjects.length / projectsPerPage)
+  const paginatedProjects = filteredProjects.slice(
+    (currentPage - 1) * projectsPerPage,
+    currentPage * projectsPerPage
+  )
+
+  // 카테고리 변경 시 페이지를 1로 초기화
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [activeCategory])
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -111,6 +124,14 @@ export default function Page() {
     }
   }
 
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+    const section = document.getElementById("projects")
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
   return (
     <div className="min-h-screen bg-background overflow-x-hidden">
       {/* Header */}
@@ -146,10 +167,10 @@ export default function Page() {
           <div className="absolute inset-0 bg-gradient-to-r from-sky-400 to-blue-800 dark:from-purple-900 dark:to-purple-600" />
           <div className="relative container pt-24 pb-32 md:pt-40 md:pb-48">
             <div className="flex flex-col items-center text-center space-y-6 text-white">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-                SOFTWARE DEVELOPER PORTFOLIO
+              <h1 className="mb-4 text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl whitespace-pre-line">
+                {profile.title}
               </h1>
-              <p className="max-w-[600px] text-lg md:text-xl text-white/90">{profile.description}</p>
+              <p className="max-w-[600px] text-lg md:text-xl text-white/90 whitespace-pre-line">{profile.description}</p>
               <div className="flex flex-col sm:flex-row gap-4 min-[400px]:flex-row">
                 <Button size="lg" variant="secondary" asChild>
                   <a href="#projects">View Projects</a>
@@ -242,7 +263,7 @@ export default function Page() {
             </h2>
             <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
               {skills.map((skill) => (
-                 <SkillCard key={skill.title} skill={skill} />
+                 <SkillCard key={skill.title} skill={skill} setCurrentPage={setCurrentPage} projectsPerPage={projectsPerPage} projects={projects} />
               ))}
             </div>
           </div>
@@ -262,10 +283,26 @@ export default function Page() {
               </TabsList>
             </Tabs>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {filteredProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+              {paginatedProjects.map((project, idx) => (
+                <ProjectCard key={idx} project={project} />
               ))}
             </div>
+            {/* Pagination UI */}
+            {totalPages > 1 && (
+              <div className="flex justify-center mt-8 gap-2">
+                <Button onClick={() => handlePageChange(Math.max(1, currentPage - 1))} disabled={currentPage === 1} variant="outline">Prev</Button>
+                {[...Array(totalPages)].map((_, i) => (
+                  <Button
+                    key={i}
+                    variant={currentPage === i + 1 ? "default" : "outline"}
+                    onClick={() => handlePageChange(i + 1)}
+                  >
+                    {i + 1}
+                  </Button>
+                ))}
+                <Button onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))} disabled={currentPage === totalPages} variant="outline">Next</Button>
+              </div>
+            )}
           </div>
         </section>
 

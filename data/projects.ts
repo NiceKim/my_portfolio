@@ -1,5 +1,5 @@
 export type Project = {
-  id: string
+  id: number
   title: string
   description: string[]
   images: string[]
@@ -8,16 +8,38 @@ export type Project = {
   github?: string
   demo?: string
   category: "web" | "other"
+  featured?: boolean
 }
 
 export const projects: Project[] = [
   {
-    id: "1",
-    title: "Deep Learning Fraud Detection During Online Assessment",
+    id: 9,
+    title: "Dragon SamuraiZ: Real-time Multiplayer Web Game",
+    featured: true,
     description: [
-      "LSTM-based non intrusive real-time fraud detection system that analyzes mouse behavior patterns to identify fraud.",
-      "96% accuracy with 0.09 second response time.",
-      "Agile development process with TDD, resulting in 15% reduction in project delivery time.",
+      "Enter a real-time 1v1 duel where every move demands strategy, timing, and reading your opponent - welcome to Dragon SamuraiZ",
+      "The game features a mobile-friendly, real-time multiplayer interface built with React. While Socket.IO enables matchmaking, synchronized actions, and smooth gameplay across devices.",
+      "Deployed as a full-stack application on AWS, the game is accessible anytime, anywhere",
+    ],
+    images: [
+      "/projects/dragon-samuraiz-1.png",
+      "/projects/dragon-samuraiz-2.png",
+      "/projects/dragon-samuraiz-3.png",
+      "/projects/dragon-samuraiz-4.png",
+    ],
+    tags: ["Node.js", "AWS EC2", "React", "Socket.IO", "Express.js"],
+    github: "https://github.com/NiceKim/dragon-samuraiz",
+    demo: "http://dragon-samurai-z-env.eba-bdb4qx2n.ap-southeast-1.elasticbeanstalk.com/",
+    category: "web",
+  },
+  {
+    id: 8,
+    title: "Deep Learning Fraud Detection During Online Assessment",
+    featured: true,
+    description: [
+      "Can mouse movement reveal cheating?",
+      "This deep learning fraud detection system says YES - with 96% accuracy in just 0.09 seconds.",
+      "An LSTM model analyzes subtle patterns in time-series cursor behavior during online assessments to flag suspicious activity in real time.",
     ],
     images: [
       "/projects/deeplearning-1.jpg",
@@ -31,11 +53,13 @@ export const projects: Project[] = [
     category: "other",
   },
   {
-    id: "2",
+    id: 7,
     title: "Stray Spotter: Cloud-based Web Service",
+    featured: true,
     description: [
-      "Cloud-based web platform for stray cat monitoring that enables photo sharing and automatic metadata extraction to track population and welfare status.",
-      "Containerized full-stack architecture with backend managing database and AWS S3 cloud integration, and frontend server delivering responsive user interface.",
+      "Share lovely photos of community cats – and contribute to monitoring their welfare and population.",
+      "Stray Spotter is a cloud-based platform that enables photo sharing and automatic metadata extraction to support data-driven monitoring.",
+      "Built with a containerized architecture following MSA principles, with modular services for gallery, reporting, and community interaction.",
     ],
     images: [
       "/projects/stray-spotter-0.png",
@@ -44,16 +68,16 @@ export const projects: Project[] = [
       "/projects/stray-spotter-3.png",
       "/projects/stray-spotter-4.png",
     ],
-    tags: ["Node.js", "AWS S3", "MySQL", "Express.js", "Docker", "Next.js", "Jest", "Swagger", "Javascript", "Rest API"],
+    tags: ["Node.js", "Typescript", "AWS S3", "AWS EC2", "AWS RDS", "MySQL", "Express.js", "Docker", "Next.js", "Jest", "Swagger", "Javascript", "Rest API"],
     github: "https://github.com/NiceKim/strayspotter",
     category: "web",
   },
   {
-    id: "3",
+    id: 6,
     title: "Responsive Portfolio Website",
     description: [
-      "Responsive, interactive portfolio website that showcases my achievements.",
-      "Modern web application leveraging cutting-edge technologies for full-stack development, responsive styling, and cloud deployment to ensure optimal performance and accessibility.",
+      "This is a responsive and interactive portfolio site designed to showcase my projects, skills, and achievements.",
+      "A modern full-stack application featuring responsive design, interactive keyword search, and project filtering"
     ],
     images: [
       "/projects/my-portfolio-1.png",
@@ -68,21 +92,21 @@ export const projects: Project[] = [
     category: "web",
   },
   {
-    id: "4",
+    id: 5,
     title: "Word Monster: Gamified Language Learning on Android",
     description: [
-      "Educational Android game combining language learning with gamification elements to enhance user engagement.",
-      "Mobile application featuring competitive leaderboard system, global ranking integration, and MVVM architecture for scalable maintenance.",
+      "Word Monster is a gamified language learning app built to make learning fun and engaging.",
+      "It features a competitive leaderboard system, global ranking integration, and a scalable MVVM architecture.",
     ],
     images: ["/projects/word-monster-1.png"],
     tags: ["Kotlin", "Android Studio"],
     category: "other",
   },
   {
-    id: "5",
+    id: 4,
     title: "AI BI: AI-Powered Business Intelligence Web Application",
     description: [
-      "AI-driven platform automatically generating business intelligence charts from raw user data.",
+      "AI-BI is an AI-driven platform automatically generating business intelligence charts from raw user data.",
       "Interactive React-based frontend delivering intuitive data visualization and exploration experience."
     ],
     images: ["/projects/aibi-1.png", "/projects/aibi-2.png"],
@@ -90,11 +114,11 @@ export const projects: Project[] = [
     category: "web",
   },
   {
-    id: "6",
+    id: 3,
     title: "EasyGo: Travel App Design with HCI Principles",
     description: [
-      "Travel app prototype integrating food, accommodation, and attraction features in unified experience.",
-      "HCI-focused design achieving 12% usability improvement through user testing and optimization.",
+      "EasyGo is a prototype travel app that unifies food, accommodation, and attraction searches with AI-supported trip planning.",
+      "Designed with a focus on Human–Computer Interaction, it achieved a 12% usability improvement through user testing and iterative optimization.",
     ],
     images: [
       "/projects/easygo-1.png",
@@ -108,11 +132,11 @@ export const projects: Project[] = [
     category: "other",
   },
   {
-    id: "7",
-    title: "Lyrics Crawling: Python RPA for Subtitle Automation",
+    id: 2,
+    title: "Lyrics Crawler: Python RPA for Subtitle Automation",
     description: [
-      "Python automation system for subtitle generation during live hymn broadcasts using web crawling technology.",
-      "RPA solution reducing manual search and transcription time by 90% through automated data extraction.",
+      "Lyrics Crawler is a Python-based automation tool I built to help my church's live broadcasts by automatically generating hymn subtitles through web crawling.",
+      "This RPA solution reduces manual search and transcription time by over 90% through automated data extraction.",
     ],
     images: ["/projects/rpa-1.jpg"],
     github: "https://github.com/NiceKim/Python_Lyrics_Crawling/tree/main/rpa",
@@ -120,11 +144,11 @@ export const projects: Project[] = [
     category: "other",
   },
   {
-    id: "8",
+    id: 1,
     title: "Jewelry Hunter: Java-based 2D Puzzle Adventure",
     description: [
-      "2D puzzle adventure game for Windows platform featuring interactive gameplay and visual storytelling elements.",
-      "Team-developed Java application with custom GUI interface and comprehensive game logic implementation.",
+      "Jewelry Hunter is a 2D puzzle adventure game for Windows, developed in Java.",
+      "Our team collaborated on game design, logic, and system implementation, building a custom interface with Java Swing to create an engaging gameplay experience.",
     ],
     images: ["/projects/java-game-1.png", "/projects/java-game-2.png"],
     tags: ["Java", "Swing", "Git", "GitHub"],

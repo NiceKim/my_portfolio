@@ -7,7 +7,7 @@ interface SkillCardProps {
   skill: Skill
 }
 
-export function SkillCard({ skill }: SkillCardProps) {
+export function SkillCard({ skill, setCurrentPage, projectsPerPage, projects }: SkillCardProps & { setCurrentPage?: (page: number) => void, projectsPerPage?: number, projects?: any[] }) {
   return (
     <Card className="transition-all duration-300 hover:shadow-xl hover:scale-105 bg-muted/50">
       <CardContent className="pt-6">
@@ -18,7 +18,7 @@ export function SkillCard({ skill }: SkillCardProps) {
         <div className="flex flex-wrap gap-2 py-2">
           {skill.items.map((item) =>
             item.logo ? (
-              <SkillBadge key={item.name} name={item.name} logo={item.logo} color={item.color || "gray"} />
+              <SkillBadge key={item.name} name={item.name} logo={item.logo} color={item.color || "gray"} setCurrentPage={setCurrentPage} projectsPerPage={projectsPerPage} projects={projects} />
             ) : (
               <Badge
                 key={item.name}

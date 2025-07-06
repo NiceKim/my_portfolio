@@ -11,23 +11,28 @@ interface SkillBadgeProps {
   name: string
   logo: string
   color: string
+  setCurrentPage?: (page: number) => void
+  projectsPerPage?: number
+  projects?: any[]
 }
 
-export function SkillBadge({ name, logo, color }: SkillBadgeProps) {
+export function SkillBadge({ name, logo, color, setCurrentPage, projectsPerPage, projects }: SkillBadgeProps) {
   const badgeUrl = `https://img.shields.io/badge/${name}-${color}?style=for-the-badge&logo=${logo}&logoColor=white`
   const { activeCategory, setActiveCategory, setHighlightedSkill } = useCategoryStore()
   
   // Find the first project that uses this skill
-  const projectWithSkill = projects.find(project => 
-    project.tags.some(tag => tag.toLowerCase() === name.toLowerCase())
+  const projectWithSkill = (projects || []).find(project => 
+    project.tags.some((tag: string) => tag.toLowerCase() === name.toLowerCase())
   )
 
   const handleClick = () => {
-    if (projectWithSkill && activeCategory !== 'all' && projectWithSkill.category !== activeCategory) {
-      setActiveCategory('all')
-    }
-   
+    setActiveCategory('all')
     setHighlightedSkill(name.toLowerCase())
+    if (projectWithSkill && setCurrentPage && projectsPerPage && projects) {
+      const idx = projects.findIndex(p => p.id === projectWithSkill.id)
+      const page = Math.floor(idx / projectsPerPage) + 1
+      setCurrentPage(page)
+    }
     setTimeout(() => {
       setHighlightedSkill(null)
     }, 2000)

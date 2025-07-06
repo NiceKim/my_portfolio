@@ -23,7 +23,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   return (
     <>
       <Card 
-        id={`project-${project.id}`} 
+        id={`project-${project.id}`}
         className={cn(
           "overflow-hidden transition-all duration-300",
           isHighlighted
@@ -40,7 +40,10 @@ export default function ProjectCard({ project }: { project: Project }) {
           />
         </div>
         <CardContent className="p-6">
-          <h3 className="text-xl font-bold mb-3">{project.title}</h3>
+          <h3 className="text-xl font-bold mb-1">{project.title}</h3>
+          {project.featured && (
+            <span className="inline-block mb-2 px-2 py-1 text-xs font-semibold text-yellow-800 bg-yellow-100 rounded dark:bg-yellow-900 dark:text-yellow-200">Featured Project</span>
+          )}
           <p className="text-muted-foreground mb-4">
             {
               project.description.map((sentence, index) => (
