@@ -1,6 +1,5 @@
 export const profile = {
   title: [
-    "TRUE ALL-ROUNDER",
     "CODE TO BRING FUN IDEAS TO LIFE",
   ],
   description: "Hackathon Winner • Full-Stack Developer \n 3+ Years as Project Manager | MSc in IT",
