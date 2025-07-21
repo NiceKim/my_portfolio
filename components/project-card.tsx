@@ -10,6 +10,29 @@ import type { Project } from "@/data/projects"
 import { ImageCarousel } from "./image-carousel"
 import { useCategoryStore } from "@/store/category-store"
 import { cn } from "@/lib/utils"
+import { supabase } from "@/lib/supabase"
+
+let lastLogTime = 0;
+const RATE_LIMIT_MS = 1000; // 1초
+
+// 로그 기록 함수 (클라이언트 기준 rate limiting 적용)
+async function logProjectAction(projectName: string, action: 'code' | 'demo' | 'images' | 'video') {
+  const now = Date.now();
+  if (now - lastLogTime < RATE_LIMIT_MS) {
+    return;
+  }
+  lastLogTime = now;
+
+  const { data, error } = await supabase
+    .from('click_logs')
+    .insert([{ project: projectName, action }])
+
+  if (error) {
+    console.error('Insert error:', error)
+  } else {
+    console.log('Inserted:', data)
+  }
+}
 
 export default function ProjectCard({ project }: { project: Project }) {
   const [showCarousel, setShowCarousel] = useState(false)
@@ -70,7 +93,12 @@ export default function ProjectCard({ project }: { project: Project }) {
         </CardContent>
         <CardFooter className="px-6 pb-6 pt-0 flex flex-wrap gap-3">
           {project.github && (
-            <Button variant="outline" size="sm" asChild>
+            <Button
+              variant="outline"
+              size="sm"
+              asChild
+              onClick={() => logProjectAction(project.title, 'code')}
+            >
               <a href={project.github} target="_blank" rel="noopener noreferrer">
                 <Github className="mr-2 h-4 w-4" />
                 Code
@@ -78,15 +106,25 @@ export default function ProjectCard({ project }: { project: Project }) {
             </Button>
           )}
           {project.demo && (
-          <Button variant="outline" size="sm" asChild>
-            <a href={project.demo} target="_blank" rel="noopener noreferrer">
-              <ExternalLink className="mr-2 h-4 w-4" />
-              Demo
-            </a>
-          </Button>
+            <Button
+              variant="outline"
+              size="sm"
+              asChild
+              onClick={() => logProjectAction(project.title, 'demo')}
+            >
+              <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="mr-2 h-4 w-4" />
+                Demo
+              </a>
+            </Button>
           )}
           {project.video && (
-            <Button variant="outline" size="sm" asChild>
+            <Button
+              variant="outline"
+              size="sm"
+              asChild
+              onClick={() => logProjectAction(project.title, 'video')}
+            >
               <a href={project.video} target="_blank" rel="noopener noreferrer">
                 <Play className="mr-2 h-4 w-4" />
                 Video
@@ -94,7 +132,14 @@ export default function ProjectCard({ project }: { project: Project }) {
             </Button>
           )}
           {project.images.length > 0 && (
-            <Button variant="outline" size="sm" onClick={() => setShowCarousel(true)}>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                setShowCarousel(true)
+                logProjectAction(project.title, 'images')
+              }}
+            >
               <ImageIcon className="mr-2 h-4 w-4" />
               Images
             </Button>
